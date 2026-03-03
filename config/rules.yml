@@ -1,0 +1,33 @@
+rules:
+  - rule_id: r1
+    rule_type: not_null
+    dataset: olist_orders
+    column: order_id
+    severity: critical
+    parameters: {}
+    description: Ensure order IDs are never null.
+  - rule_id: r2
+    rule_type: accepted_values
+    dataset: olist_orders
+    column: order_status
+    severity: warning
+    parameters:
+      allowed_values: ["created", "approved", "shipped", "delivered", "canceled"]
+    description: Validate allowed business states.
+  - rule_id: r3
+    rule_type: row_count_between
+    dataset: olist_orders
+    severity: warning
+    parameters:
+      min_rows: 1
+      max_rows: 1000000
+    description: Ensure row count stays in a realistic range.
+  - rule_id: r4
+    rule_type: range
+    dataset: olist_orders
+    column: order_purchase_timestamp
+    severity: warning
+    parameters:
+      min: 2020
+      max: 2035
+    description: Validate purchase years are realistic.

@@ -1,0 +1,19 @@
+datasets:
+  - dataset_id: olist_orders
+    dataset_name: Olist Orders
+    source_location: data/olist_orders.csv
+    destination_table: raw.olist_orders
+    primary_key: order_id
+    expected_update_frequency: daily
+    owner: data-platform
+    downstream_tables:
+      - raw.olist_order_items
+      - raw.olist_payments
+  - dataset_id: olist_customers
+    dataset_name: Olist Customers
+    source_location: data/olist_customers.csv
+    destination_table: raw.olist_customers
+    primary_key: customer_id
+    expected_update_frequency: daily
+    owner: customer-ops
+    downstream_tables: []
