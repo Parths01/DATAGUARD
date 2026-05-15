@@ -9,7 +9,7 @@
 
 ## Testing layers
 1. Unit tests for YAML validation, rules, anomaly calculations, health scoring, incident deduplication.
-2. Integration tests for PostgreSQL schema and ingestion workflow.
+2. Integration tests for SQLite ingestion and batch validation workflow; PostgreSQL schema validation remains pending.
 3. Airflow DAG import and dependency checks.
 4. Dashboard tests for rendering and filters.
 5. Full end-to-end workflow with synthetic fault injection.
@@ -22,6 +22,7 @@
 - Incident lifecycle and duplicate prevention.
 - Alert delivery safety.
 - Docker and CI execution.
+- CSV ingestion, check persistence, batch metadata, and health status mapping.
 
 ## Acceptance standard
 A task is only considered verified when the relevant tests pass and the behavior matches the documented acceptance criteria.
